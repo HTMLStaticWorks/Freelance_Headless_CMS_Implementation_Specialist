@@ -186,19 +186,139 @@
             border: 3px solid var(--surface);
         }
 
-        @media (max-width: 992px) {
+        @media (max-width: 1024px) {
             .dashboard-grid {
                 grid-template-columns: 1fr;
             }
 
             .dashboard-sidebar {
-                position: static;
-                margin-bottom: 2rem;
+                position: fixed;
+                top: 0;
+                left: -300px;
+                width: 280px;
+                height: 100vh;
+                background: var(--surface);
+                z-index: 1001;
+                transition: 0.3s ease;
+                margin-bottom: 0;
+                border-radius: 0;
+                padding-top: 100px;
+                border-right: 1px solid var(--border);
+            }
+            
+            .dashboard-sidebar.active {
+                left: 0;
             }
 
             .sidebar-nav {
-                flex-direction: row;
-                flex-wrap: wrap;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                gap: 0.5rem;
+            }
+            
+            .dashboard-container {
+                padding: 100px 15px 60px;
+                overflow-x: hidden;
+                width: 100%;
+            }
+
+            .dashboard-card {
+                padding: 1rem;
+                margin-bottom: 1.5rem;
+                overflow: hidden;
+            }
+
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            .card-header .btn {
+                width: 100%;
+            }
+
+            .model-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .table-responsive {
+                border: 0;
+                margin-bottom: 0;
+            }
+
+            .table thead {
+                display: none;
+            }
+
+            .table tbody tr {
+                display: block;
+                padding: 1rem 0;
+                border-bottom: 1px solid var(--border) !important;
+            }
+
+            .table tbody td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5rem 0 !important;
+                border: 0 !important;
+                text-align: right;
+            }
+
+            .table tbody td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: var(--text-primary);
+                text-align: left;
+            }
+
+            .api-preview {
+                padding: 1rem;
+                font-size: 0.8rem;
+            }
+
+            pre, code {
+                white-space: pre-wrap !important;
+                word-break: break-all !important;
+            }
+
+            .mobile-sidebar-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                backdrop-filter: blur(4px);
+                z-index: 1000;
+            }
+
+            .mobile-sidebar-overlay.active {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar .container {
+                padding: 0 15px;
+            }
+
+            .hero-title {
+                font-size: 1.75rem !important;
+                text-align: center;
+            }
+            
+            .hero-subtitle {
+                text-align: center;
+                font-size: 0.9rem;
+            }
+            
+            .logo {
+                font-size: 1rem;
             }
         }
     </style>
@@ -212,25 +332,30 @@
             <!-- Brand Identity -->
             <a href="index.html" class="logo"><i class="ri-stack-line text-accent"></i> CMS<span>Specialist</span></a>
 
-            <!-- Dashboard Actions -->
-            <div class="nav-actions">
-                <button id="rtl-toggle" class="btn btn-outline">RTL</button>
-                <button id="theme-toggle" class="btn btn-outline" aria-label="Toggle Theme">
-                    <i class="ri-sun-line"></i>
-                </button>
-                <div class="ms-3 d-flex align-items-center gap-2">
-                    <div class="text-end d-none d-sm-block">
-                        <div class="small fw-bold">Admin User</div>
-                        <div class="text-secondary" style="font-size: 0.7rem;">Super Admin</div>
-                    </div>
-                    <div class="bg-accent-glow rounded-circle d-flex align-items-center justify-content-center"
-                        style="width: 40px; height: 40px; border: 1px solid var(--accent);">
-                        <i class="ri-user-3-line text-accent"></i>
+            <div class="d-flex align-items-center gap-3 ms-auto">
+                <!-- Dashboard Actions -->
+                <div class="nav-actions">
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="text-end d-none d-sm-block">
+                            <div class="small fw-bold">Admin User</div>
+                            <div class="text-secondary" style="font-size: 0.7rem;">Super Admin</div>
+                        </div>
+                        <div class="bg-accent-glow rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 40px; height: 40px; border: 1px solid var(--accent);">
+                            <i class="ri-user-3-line text-accent"></i>
+                        </div>
                     </div>
                 </div>
+                <!-- Hamburger Toggle -->
+                <button class="dashboard-menu-toggle d-xl-none btn btn-outline">
+                    <i class="ri-menu-line"></i>
+                </button>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-sidebar-overlay" id="sidebar-overlay"></div>
 
     <!-- Dashboard Content -->
     <section class="dashboard-container">
@@ -318,39 +443,39 @@
                                 </thead>
                                 <tbody>
                                     <tr style="border-bottom: 1px solid var(--border);">
-                                        <td class="py-4 align-middle fw-medium" style="color: var(--text-primary);">
+                                        <td class="py-4 align-middle fw-medium" data-label="Name" style="color: var(--text-primary);">
                                             Vercel Production</td>
-                                        <td class="py-4 align-middle"><code class="small"
+                                        <td class="py-4 align-middle" data-label="Endpoint"><code class="small"
                                                 style="background: rgba(255,255,255,0.05); padding: 4px 8px; border-radius: 4px; color: var(--text-secondary);">https://api.vercel.com/v1...</code>
                                         </td>
-                                        <td class="py-4 align-middle"><span class="badge"
+                                        <td class="py-4 align-middle" data-label="Event"><span class="badge"
                                                 style="background: var(--accent-glow); color: var(--accent); border: 1px solid rgba(124, 58, 237, 0.2);">Entry
                                                 Published</span></td>
-                                        <td class="py-4 align-middle"><span
+                                        <td class="py-4 align-middle" data-label="Status"><span
                                                 class="status-badge status-active">Active</span></td>
                                     </tr>
                                     <tr style="border-bottom: 1px solid var(--border);">
-                                        <td class="py-4 align-middle fw-medium" style="color: var(--text-primary);">
+                                        <td class="py-4 align-middle fw-medium" data-label="Name" style="color: var(--text-primary);">
                                             Algolia Indexer</td>
-                                        <td class="py-4 align-middle"><code class="small"
+                                        <td class="py-4 align-middle" data-label="Endpoint"><code class="small"
                                                 style="background: rgba(255,255,255,0.05); padding: 4px 8px; border-radius: 4px; color: var(--text-secondary);">https://hooks.algolia.com...</code>
                                         </td>
-                                        <td class="py-4 align-middle"><span class="badge"
+                                        <td class="py-4 align-middle" data-label="Event"><span class="badge"
                                                 style="background: var(--accent-glow); color: var(--accent); border: 1px solid rgba(124, 58, 237, 0.2);">Entry
                                                 Updated</span></td>
-                                        <td class="py-4 align-middle"><span
+                                        <td class="py-4 align-middle" data-label="Status"><span
                                                 class="status-badge status-active">Active</span></td>
                                     </tr>
                                     <tr>
-                                        <td class="py-4 align-middle fw-medium" style="color: var(--text-primary);">
+                                        <td class="py-4 align-middle fw-medium" data-label="Name" style="color: var(--text-primary);">
                                             Slack Notifications</td>
-                                        <td class="py-4 align-middle"><code class="small"
+                                        <td class="py-4 align-middle" data-label="Endpoint"><code class="small"
                                                 style="background: rgba(255,255,255,0.05); padding: 4px 8px; border-radius: 4px; color: var(--text-secondary);">https://hooks.slack.com...</code>
                                         </td>
-                                        <td class="py-4 align-middle"><span class="badge"
+                                        <td class="py-4 align-middle" data-label="Event"><span class="badge"
                                                 style="background: var(--accent-glow); color: var(--accent); border: 1px solid rgba(124, 58, 237, 0.2);">System
                                                 Error</span></td>
-                                        <td class="py-4 align-middle"><span
+                                        <td class="py-4 align-middle" data-label="Status"><span
                                                 class="status-badge status-error">Failed</span></td>
                                     </tr>
                                 </tbody>
@@ -490,6 +615,34 @@
         }, observerOptions);
 
         document.querySelectorAll('.dashboard-card').forEach(card => observer.observe(card));
+
+        // Dashboard Mobile Toggle Logic
+        const toggleBtn = document.querySelector('.dashboard-menu-toggle');
+        const sidebar = document.querySelector('.dashboard-sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        
+        if(toggleBtn && sidebar && overlay) {
+            toggleBtn.addEventListener('click', function() {
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            overlay.addEventListener('click', function() {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            // Close on link click (already handled by smooth scroll for some links, but this ensures it closes)
+            sidebar.querySelectorAll('.sidebar-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
     </script>
 </body>
 
