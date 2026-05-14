@@ -1,0 +1,67 @@
+/* 
+    Freelance Headless CMS Implementation Specialist
+    Animations & Transitions - animations.css
+*/
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.reveal {
+    overflow: hidden;
+}
+
+.reveal-inner {
+    display: block;
+}
+
+/* Hover Animations */
+.hover-lift {
+    transition: var(--transition-base);
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+}
+
+.hover-glow {
+    transition: var(--transition-base);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 30px var(--accent-glow);
+}
+
+/* Smooth Scrolling Hook */
+html {
+    scroll-behavior: smooth;
+}
+
+/* API Flow Dots Animation */
+@keyframes flow {
+    0% { transform: translateX(-100%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0; }
+}
+
+.api-flow-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: absolute;
+    animation: flow 3s infinite linear;
+}
+
+/* Dashboard Skeleton Shimmer */
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+.shimmer {
+    background: linear-gradient(90deg, var(--background) 0%, var(--surface) 50%, var(--background) 100%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+}

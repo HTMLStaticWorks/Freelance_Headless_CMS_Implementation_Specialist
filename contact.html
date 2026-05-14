@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Technical Consultant | CMS Specialist</title>    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><i class="ri-stack-line text-accent"></i> CMS<span>Specialist</span></a>
+            <ul class="nav-links">
+                <li class="nav-item nav-dropdown">
+                    <a href="index.html">Home <i class="ri-arrow-down-s-line"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-item">Home - Enterprise</a>
+                        <a href="home-2.html" class="dropdown-item">Home - Developer Focus</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="services.html">Services</a></li>
+                <li class="nav-item nav-dropdown">
+                    <a href="#">Solutions <i class="ri-arrow-down-s-line"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="strapi-solutions.html" class="dropdown-item">Strapi Solutions</a>
+                        <a href="sanity-solutions.html" class="dropdown-item">Sanity Solutions</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="case-studies.html">Case Studies</a></li>
+                <li class="nav-item"><a href="blog.html">Blog</a></li>
+                                <li class="nav-item"><a href="contact.html" class="text-accent">Contact</a></li>
+                <li class="nav-item"><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="rtl-toggle" class="btn btn-outline">RTL</button>
+                <button id="theme-toggle" class="btn btn-outline"><i class="ri-sun-line"></i></button>
+                <a href="signup.html" class="btn btn-primary">Signup</a>
+            </div>
+            <button class="mobile-menu-btn d-xl-none btn btn-outline ms-auto" style="display:flex; align-items:center; justify-content:center; padding: 0.5rem 0.75rem;"><i class="ri-menu-line" style="font-size: 1.25rem; margin:0;"></i></button>
+        </div>
+    </nav>
+
+    <!-- Contact Header -->
+    <section class="section pb-0" style="padding-top: 140px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">Let's Build Your <span class="text-gradient">Content Engine</span>.</h1>
+                    <p class="hero-subtitle">Ready to discuss your headless implementation? Reach out for a technical consultation or a project audit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="section">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <div class="card p-5">
+                        <form id="contact-form">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label class="small fw-bold mb-2">Full Name</label>
+                                    <input type="text" class="form-control" placeholder="John Doe" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="small fw-bold mb-2">Work Email</label>
+                                    <input type="email" class="form-control" placeholder="john@company.com" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="small fw-bold mb-2">Subject</label>
+                                    <select class="form-control">
+                                        <option>Strapi Implementation</option>
+                                        <option>Sanity Architecture</option>
+                                        <option>API Security Audit</option>
+                                        <option>General Consulting</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="small fw-bold mb-2">Project Details</label>
+                                    <textarea class="form-control" placeholder="Tell me about your tech stack and CMS goals..." required></textarea>
+                                </div>
+                                <div class="col-md-12 d-grid">
+                                    <button type="submit" class="btn btn-primary py-3">Send Inquiry</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card h-100 p-5">
+                        <h3 class="mb-4">Contact Info</h3>
+                        <div class="mb-4">
+                            <h5 class="text-accent mb-2"><i class="ri-mail-line me-2"></i> Email</h5>
+                            <p class="text-secondary">consultant@cmsspecialist.dev</p>
+                        </div>
+                        <div class="mb-4">
+                            <h5 class="text-accent mb-2"><i class="ri-map-pin-line me-2"></i> Location</h5>
+                            <p class="text-secondary">Remote | Available for Global Projects</p>
+                        </div>
+                        <div class="mb-5">
+                            <h5 class="text-accent mb-2"><i class="ri-time-line me-2"></i> Availability</h5>
+                            <p class="text-secondary">Mon - Fri: 09:00 - 18:00 EST</p>
+                        </div>
+                        
+                        <h4 class="mb-3">Socials</h4>
+                        <div class="d-flex" style="gap: 24px !important;">
+                            <a href="#" class="btn btn-outline" style="width: 48px; height: 48px; padding: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="ri-github-fill ri-xl"></i></a>
+                            <a href="#" class="btn btn-outline" style="width: 48px; height: 48px; padding: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="ri-linkedin-box-fill ri-xl"></i></a>
+                            <a href="#" class="btn btn-outline" style="width: 48px; height: 48px; padding: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="ri-twitter-x-fill ri-xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section pt-0">
+        <div class="container">
+            <div class="card p-0 overflow-hidden" style="border-radius: 20px;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100939.27318359051!2d-122.50764017940251!3d37.75781498666579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1715673600000!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%);" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="logo mb-4 d-block"><i class="ri-stack-line text-accent"></i> CMS<span>Specialist</span></a>
+                    <p class="text-secondary">Helping teams build scalable, API-first content systems with modern Headless CMS architecture.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Solutions</h4>
+                    <a href="strapi-solutions.html" class="footer-link">Strapi Implementation</a>
+                    <a href="sanity-solutions.html" class="footer-link">Sanity Integration</a>
+                    <a href="service-details.html" class="footer-link">API Architecture</a>
+                    <a href="service-details.html" class="footer-link">Security Audits</a>
+                </div>
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <a href="blog.html" class="footer-link">Technical Blog</a>
+                    <a href="case-studies.html" class="footer-link">Case Studies</a>
+                    <a href="contact.html" class="footer-link">Documentation</a>
+                    <a href="404.html" class="footer-link">API Status</a>
+                </div>
+                <div>
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p class="text-secondary mb-3">Get technical insights on Headless CMS trends.</p>
+                    <form class="d-flex gap-2">
+                        <input type="email" class="btn btn-outline w-100" placeholder="Email address" style="text-align: left;">
+                        <button class="btn btn-primary"><i class="ri-send-plane-fill"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-5 pt-4 border-top text-center text-secondary" style="font-size: 0.85rem;">
+                <p>&copy; 2026 CMS Specialist. All rights reserved. | <a href="#" class="footer-link d-inline">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+

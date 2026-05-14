@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Authentication Patterns | Technical Blog</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><i class="ri-stack-line text-accent"></i> CMS<span>Specialist</span></a>
+            <ul class="nav-links">
+                <li class="nav-item nav-dropdown">
+                    <a href="index.html">Home <i class="ri-arrow-down-s-line"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-item">Home - Enterprise</a>
+                        <a href="home-2.html" class="dropdown-item">Home - Developer Focus</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="services.html">Services</a></li>
+                <li class="nav-item nav-dropdown">
+                    <a href="#">Solutions <i class="ri-arrow-down-s-line"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="strapi-solutions.html" class="dropdown-item">Strapi Solutions</a>
+                        <a href="sanity-solutions.html" class="dropdown-item">Sanity Solutions</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="case-studies.html">Case Studies</a></li>
+                <li class="nav-item"><a href="blog.html" class="text-accent">Blog</a></li>
+                <li class="nav-item"><a href="contact.html">Contact</a></li>
+                <li class="nav-item"><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="rtl-toggle" class="btn btn-outline">RTL</button>
+                <button id="theme-toggle" class="btn btn-outline"><i class="ri-sun-line"></i></button>
+                <a href="signup.html" class="btn btn-primary">Signup</a>
+            </div>
+            <button class="mobile-menu-btn d-xl-none btn btn-outline ms-auto" style="display:flex; align-items:center; justify-content:center; padding: 0.5rem 0.75rem;"><i class="ri-menu-line" style="font-size: 1.25rem; margin:0;"></i></button>
+        </div>
+    </nav>
+
+    <!-- Post Header -->
+    <section class="section" style="padding-top: 140px; background: var(--surface);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="mb-4">
+                        <span class="badge bg-accent-glow text-accent py-2 px-3">Security</span>
+                        <span class="text-secondary ms-3 small">Published May 05, 2026</span>
+                    </div>
+                    <h1 class="hero-title" style="font-size: 3.5rem;">API <span class="text-accent">Authentication</span> Patterns.</h1>
+                    <p class="hero-subtitle">Comparing JWT, API Keys, and OAuth2 for securing your headless CMS endpoints in production.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Post Content -->
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <article class="text-secondary" style="font-size: 1.1rem; line-height: 1.8;">
+                        <p class="mb-5">Securing your Headless CMS API is not just about keeping data private; it's about protecting your infrastructure from abuse and ensuring data integrity.</p>
+                        
+                        <h2 class="text-primary mt-5 mb-4">Common Patterns</h2>
+                        <p class="mb-4">Most modern headless systems rely on one of three main authentication strategies depending on the use case (Client-side vs Server-side).</p>
+                        
+                        <h3 class="text-primary mb-3">1. JWT (JSON Web Tokens)</h3>
+                        <p class="mb-4">Ideal for user-authenticated sessions. JWTs allow you to carry user state in a stateless manner, making them perfect for decoupled frontends like Next.js or Nuxt.</p>
+
+                        <h3 class="text-primary mb-3">2. Permanent API Keys</h3>
+                        <p class="mb-4">Best for server-to-server communication (e.g., Static Site Generation). These should be treated as secrets and never exposed to the browser.</p>
+
+                        <h3 class="text-primary mb-3">3. OAuth2</h3>
+                        <p class="mb-4">The gold standard for third-party integrations and complex enterprise systems requiring granular permission scopes.</p>
+
+                        <h2 class="text-primary mt-5 mb-4">Security Checklist</h2>
+                        <ul class="mb-4">
+                            <li>Always use HTTPS</li>
+                            <li>Implement Rate Limiting</li>
+                            <li>Use CORS policies to restrict origins</li>
+                            <li>Rotate your keys regularly</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="logo mb-4 d-block"><i class="ri-stack-line text-accent"></i> CMS<span>Specialist</span></a>
+                    <p class="text-secondary">Helping teams build scalable, API-first content systems with modern Headless CMS architecture.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Solutions</h4>
+                    <a href="strapi-solutions.html" class="footer-link">Strapi Implementation</a>
+                    <a href="sanity-solutions.html" class="footer-link">Sanity Integration</a>
+                    <a href="service-details.html" class="footer-link">API Architecture</a>
+                    <a href="service-details.html" class="footer-link">Security Audits</a>
+                </div>
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <a href="blog.html" class="footer-link">Technical Blog</a>
+                    <a href="case-studies.html" class="footer-link">Case Studies</a>
+                    <a href="contact.html" class="footer-link">Documentation</a>
+                    <a href="404.html" class="footer-link">API Status</a>
+                </div>
+                <div>
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p class="text-secondary mb-3">Get technical insights on Headless CMS trends.</p>
+                    <form class="d-flex gap-2">
+                        <input type="email" class="btn btn-outline w-100" placeholder="Email address" style="text-align: left;">
+                        <button class="btn btn-primary"><i class="ri-send-plane-fill"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-5 pt-4 border-top text-center text-secondary" style="font-size: 0.85rem;">
+                <p>&copy; 2026 CMS Specialist. All rights reserved. | <a href="#" class="footer-link d-inline">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

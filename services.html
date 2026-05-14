@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Services | Freelance Headless CMS Specialist</title>    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><i class="ri-stack-line text-accent"></i> CMS<span>Specialist</span></a>
+            <ul class="nav-links">
+                <li class="nav-item nav-dropdown">
+                    <a href="index.html">Home <i class="ri-arrow-down-s-line"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-item">Home - Enterprise</a>
+                        <a href="home-2.html" class="dropdown-item">Home - Developer Focus</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="services.html" class="text-accent">Services</a></li>
+                <li class="nav-item nav-dropdown">
+                    <a href="#">Solutions <i class="ri-arrow-down-s-line"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="strapi-solutions.html" class="dropdown-item">Strapi Solutions</a>
+                        <a href="sanity-solutions.html" class="dropdown-item">Sanity Solutions</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="case-studies.html">Case Studies</a></li>
+                <li class="nav-item"><a href="blog.html">Blog</a></li>
+                <li class="nav-item"><a href="contact.html">Contact</a></li>
+                <li class="nav-item"><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="rtl-toggle" class="btn btn-outline">RTL</button>
+                <button id="theme-toggle" class="btn btn-outline"><i class="ri-sun-line"></i></button>
+                <a href="signup.html" class="btn btn-primary">Signup</a>
+            </div>
+            <button class="mobile-menu-btn d-xl-none btn btn-outline ms-auto" style="display:flex; align-items:center; justify-content:center; padding: 0.5rem 0.75rem;"><i class="ri-menu-line" style="font-size: 1.25rem; margin:0;"></i></button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="section pb-0" style="padding-top: 140px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="hero-title">Specialized <span class="text-gradient">CMS Implementation</span> Services.
+                    </h1>
+                    <p class="hero-subtitle">Technical consulting for organizations moving towards a composable
+                        architecture. I specialize in building content systems that scale with your code.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 fade-up">
+                        <img src="assets/images/blog-strapi-cicd.png" alt="Strapi Customization" class="card-img">
+                        <h3 class="mb-3">Strapi Customization</h3>
+                        <p class="text-secondary mb-4">Deep customization of Strapi backends, including custom
+                            controllers, lifecycle hooks, and unique admin panel plugins.</p>
+                        <a href="service-strapi-customization.html" class="text-accent fw-bold mt-auto">View Details <i
+                                class="ri-arrow-right-line"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 fade-up" style="transition-delay: 0.1s;">
+                        <img src="assets/images/blog-sanity.png" alt="Sanity Architecture" class="card-img">
+                        <h3 class="mb-3">Sanity Architecture</h3>
+                        <p class="text-secondary mb-4">Architecting complex Sanity schemas with Portable Text, custom
+                            input components, and GROQ query optimization.</p>
+                        <a href="service-sanity-architecture.html" class="text-accent fw-bold mt-auto">View Details <i
+                                class="ri-arrow-right-line"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 fade-up" style="transition-delay: 0.2s;">
+                        <img src="assets/images/workflow.png" alt="Schema Design" class="card-img">
+                        <h3 class="mb-3">Schema Design</h3>
+                        <p class="text-secondary mb-4">Designing content models that are decoupled from the UI, ensuring
+                            future-proof data structures for any frontend.</p>
+                        <a href="service-schema-design.html" class="text-accent fw-bold mt-auto">View Details <i
+                                class="ri-arrow-right-line"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 fade-up">
+                        <img src="assets/images/hero.png" alt="Cloud Deployment" class="card-img">
+                        <h3 class="mb-3">Cloud Deployment</h3>
+                        <p class="text-secondary mb-4">Setting up production-ready CMS hosting on Heroku, DigitalOcean,
+                            or Strapi Cloud with CI/CD integration.</p>
+                        <a href="service-cloud-deployment.html" class="text-accent fw-bold mt-auto">View Details <i
+                                class="ri-arrow-right-line"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 fade-up" style="transition-delay: 0.1s;">
+                        <img src="assets/images/blog-security.png" alt="Security Audits" class="card-img">
+                        <h3 class="mb-3">Security Audits</h3>
+                        <p class="text-secondary mb-4">Full security reviews of your CMS implementation, focusing on
+                            RBAC, API permissions, and data protection.</p>
+                        <a href="service-security-audits.html" class="text-accent fw-bold mt-auto">View Details <i
+                                class="ri-arrow-right-line"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 fade-up" style="transition-delay: 0.2s;">
+                        <img src="assets/images/blog-nextjs.png" alt="Content Migration" class="card-img">
+                        <h3 class="mb-3">Content Migration</h3>
+                        <p class="text-secondary mb-4">Automated scripts to migrate data from WordPress or legacy
+                            databases into your new Headless CMS ecosystem.</p>
+                        <a href="service-content-migration.html" class="text-accent fw-bold mt-auto">View Details <i
+                                class="ri-arrow-right-line"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Tiers -->
+    <section class="section" style="background: var(--surface);">
+        <div class="container">
+            <div class="text-center mb-5 d-flex flex-column align-items-center w-100">
+                <h2 class="hero-title w-100" style="font-size: 2.5rem; text-align: center !important;">Transparent <span class="text-accent">Consulting</span> Rates.</h2>
+                <p class="text-secondary text-center mx-auto w-100" style="max-width: 600px; text-align: center !important;">Choose a plan that fits your project's technical scope and timeline.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card text-center h-100 fade-up">
+                        <h4 class="mb-2">Technical Audit</h4>
+                        <div class="hero-title text-accent" style="font-size: 2rem;">$1,499</div>
+                        <p class="text-secondary mb-4">Best for auditing existing CMS implementations.</p>
+                        <ul class="text-start mb-4">
+                            <li class="mb-2"><i class="ri-check-line text-accent me-2"></i> Security Vulnerability Scan
+                            </li>
+                            <li class="mb-2"><i class="ri-check-line text-accent me-2"></i> Performance Bottleneck
+                                Analysis</li>
+                            <li class="mb-2"><i class="ri-check-line text-accent me-2"></i> Schema Best Practices Review
+                            </li>
+                            <li class="mb-2"><i class="ri-check-line text-accent me-2"></i> Technical Debt Roadmap</li>
+                        </ul>
+                        <div class="d-grid mt-auto">
+                            <a href="contact.html" class="btn btn-outline">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center h-100 fade-up"
+                        style="border-color: var(--accent); position: relative;">
+                        <div class="badge bg-accent position-absolute top-0 start-50 translate-middle py-2 px-4"
+                            style="background: var(--accent); color: white; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">
+                            Most Popular</div>
+                        <h4 class="mb-2">Enterprise Sync</h4>
+                        <div class="hero-title text-accent" style="font-size: 2rem;">$5,999</div>
+                        <p class="text-secondary mb-4">Complete implementation for large teams.</p>
+                        <ul class="text-start mb-4">
+                            <li class="mb-2"><i class="ri-check-line text-accent me-2"></i> Advanced RBAC & Workflows
+                            </li>
+                            <li class="mb-2"><i class="ri-check-line text-accent me-2"></i> Multi-Environment Strategy
+                            </li>
+                            <li class="mb-2"><i class="ri-check-line text-accent me-2"></i> Custom Plugin Development
+                            </li>
+                            <li class="mb-2"><i class="ri-check-line text-accent me-2"></i> 1 Month Premium Support</li>
+                        </ul>
+                        <div class="d-grid mt-auto">
+                            <a href="contact.html" class="btn btn-primary">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center h-100 fade-up">
+                        <h4 class="mb-2">Project Kickstart</h4>
+                        <div class="hero-title text-accent" style="font-size: 2rem;">$2,499</div>
+                        <p class="text-secondary mb-4">Best for startups starting their headless journey.</p>
+                        <ul class="text-start mb-4">
+                            <li class="mb-2"><i class="ri-check-line text-accent me-2"></i> Initial Schema Architecture
+                            </li>
+                            <li class="mb-2"><i class="ri-check-line text-accent me-2"></i> CMS Setup & Configuration
+                            </li>
+                            <li class="mb-2"><i class="ri-check-line text-accent me-2"></i> Basic API Documentation</li>
+                            <li class="mb-2"><i class="ri-check-line text-accent me-2"></i> 1 Week Post-Launch Support
+                            </li>
+                        </ul>
+                        <div class="d-grid mt-auto">
+                            <a href="contact.html" class="btn btn-outline">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="logo mb-4 d-block"><i class="ri-stack-line text-accent"></i> CMS<span>Specialist</span></a>
+                    <p class="text-secondary">Helping teams build scalable, API-first content systems with modern
+                        Headless CMS architecture.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Solutions</h4>
+                    <a href="strapi-solutions.html" class="footer-link">Strapi Implementation</a>
+                    <a href="sanity-solutions.html" class="footer-link">Sanity Integration</a>
+                    <a href="service-details.html" class="footer-link">API Architecture</a>
+                    <a href="service-details.html" class="footer-link">Security Audits</a>
+                </div>
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <a href="blog.html" class="footer-link">Technical Blog</a>
+                    <a href="case-studies.html" class="footer-link">Case Studies</a>
+                    <a href="contact.html" class="footer-link">Documentation</a>
+                    <a href="404.html" class="footer-link">API Status</a>
+                </div>
+                <div>
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p class="text-secondary mb-3">Get technical insights on Headless CMS trends.</p>
+                    <form class="d-flex gap-2">
+                        <input type="email" class="btn btn-outline w-100" placeholder="Email address"
+                            style="text-align: left;">
+                        <button class="btn btn-primary"><i class="ri-send-plane-fill"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-5 pt-4 border-top text-center text-secondary" style="font-size: 0.85rem;">
+                <p>&copy; 2026 CMS Specialist. All rights reserved. | <a href="#" class="footer-link d-inline">Privacy
+                        Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
+
+
+

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | CMS Specialist</title>
+    <meta name="description"
+        content="Manage your Headless CMS architecture, webhooks, API previews, and environment migrations.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+
+    <style>
+        .dashboard-container {
+            padding: 140px 0 100px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2.5rem;
+        }
+
+        .dashboard-sidebar {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--card-radius);
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .sidebar-link {
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .sidebar-link i {
+            font-size: 1.2rem;
+        }
+
+        .sidebar-link.active {
+            background: var(--accent-glow);
+            color: var(--accent);
+        }
+
+        .sidebar-link:hover:not(.active) {
+            background: var(--background);
+            color: var(--text-primary);
+        }
+
+        .dashboard-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--card-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-active {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+        }
+
+        .status-pending {
+            background: rgba(234, 179, 8, 0.1);
+            color: #eab308;
+        }
+
+        .status-error {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+        }
+
+        .api-preview {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .model-item {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--transition-base);
+        }
+
+        .model-item:hover {
+            border-color: var(--accent);
+            background: var(--accent-glow);
+        }
+
+        .migration-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .migration-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -2.35rem;
+            top: 0.25rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--surface);
+        }
+
+        @media (max-width: 992px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-sidebar {
+                position: static;
+                margin-bottom: 2rem;
+            }
+
+            .sidebar-nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <!-- Brand Identity -->
+            <a href="index.html" class="logo"><i class="ri-stack-line text-accent"></i> CMS<span>Specialist</span></a>
+
+            <!-- Dashboard Actions -->
+            <div class="nav-actions">
+                <button id="rtl-toggle" class="btn btn-outline">RTL</button>
+                <button id="theme-toggle" class="btn btn-outline" aria-label="Toggle Theme">
+                    <i class="ri-sun-line"></i>
+                </button>
+                <div class="ms-3 d-flex align-items-center gap-2">
+                    <div class="text-end d-none d-sm-block">
+                        <div class="small fw-bold">Admin User</div>
+                        <div class="text-secondary" style="font-size: 0.7rem;">Super Admin</div>
+                    </div>
+                    <div class="bg-accent-glow rounded-circle d-flex align-items-center justify-content-center"
+                        style="width: 40px; height: 40px; border: 1px solid var(--accent);">
+                        <i class="ri-user-3-line text-accent"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <section class="dashboard-container">
+        <div class="container">
+            <div class="mb-5">
+                <h1 class="mb-2">Admin <span class="text-gradient">Dashboard</span></h1>
+                <p class="text-secondary">Enterprise CMS Control Center</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Sidebar Navigation -->
+                <aside class="dashboard-sidebar fade-up">
+                    <nav class="sidebar-nav">
+                        <a href="#content-model" class="sidebar-link active">
+                            <i class="ri-node-tree"></i> Content Model
+                        </a>
+                        <a href="#webhooks" class="sidebar-link">
+                            <i class="ri-links-line"></i> Webhooks
+                        </a>
+                        <a href="#api-preview" class="sidebar-link">
+                            <i class="ri-code-s-slash-line"></i> API Preview
+                        </a>
+                        <a href="#migrations" class="sidebar-link">
+                            <i class="ri-arrow-left-right-line"></i> Migrations
+                        </a>
+                        <a href="login.html" class="sidebar-link mt-4 text-danger">
+                            <i class="ri-logout-box-line"></i> Logout
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="dashboard-content">
+
+                    <!-- Content Model Architecture -->
+                    <div id="content-model" class="dashboard-card fade-up">
+                        <div class="card-header">
+                            <h3 class="card-title"><i class="ri-node-tree text-accent"></i> Content Architecture</h3>
+                            <button class="btn btn-outline btn-sm">Add Model</button>
+                        </div>
+                        <div class="model-grid">
+                            <div class="model-item">
+                                <i class="ri-file-text-line ri-2x mb-3 text-accent"></i>
+                                <h4>Pages</h4>
+                                <p class="text-secondary mb-0">12 Fields</p>
+                            </div>
+                            <div class="model-item">
+                                <i class="ri-article-line ri-2x mb-3 text-accent"></i>
+                                <h4>Posts</h4>
+                                <p class="text-secondary mb-0">8 Fields</p>
+                            </div>
+                            <div class="model-item">
+                                <i class="ri-user-settings-line ri-2x mb-3 text-accent"></i>
+                                <h4>Authors</h4>
+                                <p class="text-secondary mb-0">5 Fields</p>
+                            </div>
+                            <div class="model-item">
+                                <i class="ri-price-tag-3-line ri-2x mb-3 text-accent"></i>
+                                <h4>Category</h4>
+                                <p class="text-secondary mb-0">3 Fields</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Webhook Configurations -->
+                    <div id="webhooks" class="dashboard-card fade-up" style="transition-delay: 0.1s;">
+                        <div class="card-header">
+                            <h3 class="card-title"><i class="ri-links-line text-accent"></i> Webhook Configs</h3>
+                            <button class="btn btn-outline btn-sm">New Webhook</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0"
+                                style="--bs-table-bg: transparent; border-color: var(--border); color: var(--text-secondary);">
+                                <thead>
+                                    <tr style="border-bottom: 2px solid var(--border);">
+                                        <th class="border-0 py-3 text-uppercase small text-secondary fw-bold"
+                                            style="letter-spacing: 0.5px;">Name</th>
+                                        <th class="border-0 py-3 text-uppercase small text-secondary fw-bold"
+                                            style="letter-spacing: 0.5px;">Endpoint</th>
+                                        <th class="border-0 py-3 text-uppercase small text-secondary fw-bold"
+                                            style="letter-spacing: 0.5px;">Event</th>
+                                        <th class="border-0 py-3 text-uppercase small text-secondary fw-bold"
+                                            style="letter-spacing: 0.5px;">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid var(--border);">
+                                        <td class="py-4 align-middle fw-medium" style="color: var(--text-primary);">
+                                            Vercel Production</td>
+                                        <td class="py-4 align-middle"><code class="small"
+                                                style="background: rgba(255,255,255,0.05); padding: 4px 8px; border-radius: 4px; color: var(--text-secondary);">https://api.vercel.com/v1...</code>
+                                        </td>
+                                        <td class="py-4 align-middle"><span class="badge"
+                                                style="background: var(--accent-glow); color: var(--accent); border: 1px solid rgba(124, 58, 237, 0.2);">Entry
+                                                Published</span></td>
+                                        <td class="py-4 align-middle"><span
+                                                class="status-badge status-active">Active</span></td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--border);">
+                                        <td class="py-4 align-middle fw-medium" style="color: var(--text-primary);">
+                                            Algolia Indexer</td>
+                                        <td class="py-4 align-middle"><code class="small"
+                                                style="background: rgba(255,255,255,0.05); padding: 4px 8px; border-radius: 4px; color: var(--text-secondary);">https://hooks.algolia.com...</code>
+                                        </td>
+                                        <td class="py-4 align-middle"><span class="badge"
+                                                style="background: var(--accent-glow); color: var(--accent); border: 1px solid rgba(124, 58, 237, 0.2);">Entry
+                                                Updated</span></td>
+                                        <td class="py-4 align-middle"><span
+                                                class="status-badge status-active">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-4 align-middle fw-medium" style="color: var(--text-primary);">
+                                            Slack Notifications</td>
+                                        <td class="py-4 align-middle"><code class="small"
+                                                style="background: rgba(255,255,255,0.05); padding: 4px 8px; border-radius: 4px; color: var(--text-secondary);">https://hooks.slack.com...</code>
+                                        </td>
+                                        <td class="py-4 align-middle"><span class="badge"
+                                                style="background: var(--accent-glow); color: var(--accent); border: 1px solid rgba(124, 58, 237, 0.2);">System
+                                                Error</span></td>
+                                        <td class="py-4 align-middle"><span
+                                                class="status-badge status-error">Failed</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- API Response Preview -->
+                    <div id="api-preview" class="dashboard-card fade-up" style="transition-delay: 0.2s;">
+                        <div class="card-header">
+                            <h3 class="card-title"><i class="ri-code-s-slash-line text-accent"></i> API Response Preview
+                            </h3>
+                            <div class="d-flex gap-2">
+                                <select class="btn btn-outline btn-sm" style="padding: 0.25rem 0.5rem;">
+                                    <option>GET /posts</option>
+                                    <option>GET /pages</option>
+                                    <option>GET /authors</option>
+                                </select>
+                                <button class="btn btn-primary btn-sm">Fetch</button>
+                            </div>
+                        </div>
+                        <div class="api-preview">
+                            <pre class="mb-0">
+{
+  "status": "success",
+  "data": [
+    {
+      "id": "post_721",
+      "title": "Scaling Strapi for Enterprise",
+      "slug": "scaling-strapi-enterprise",
+      "author": {
+        "name": "Jane Doe",
+        "role": "CMS Architect"
+      },
+      "published_at": "2026-05-14T10:00:00Z",
+      "tags": ["strapi", "enterprise", "performance"]
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "total": 45,
+      "page": 1,
+      "limit": 10
+    }
+  }
+}</pre>
+                        </div>
+                    </div>
+
+                    <!-- Environment Migrations -->
+                    <div id="migrations" class="dashboard-card fade-up" style="transition-delay: 0.3s;">
+                        <div class="card-header">
+                            <h3 class="card-title"><i class="ri-arrow-left-right-line text-accent"></i> Environment
+                                Migrations</h3>
+                            <button class="btn btn-primary btn-sm">Start Migration</button>
+                        </div>
+                        <div class="migration-timeline">
+                            <div class="timeline-item">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <div>
+                                        <h5 class="mb-1">Staging Ã¢â€ â€™ Production</h5>
+                                        <p class="text-secondary small mb-0">Migration of 24 schema changes and 142
+                                            content entries.</p>
+                                    </div>
+                                    <span class="status-badge status-pending">In Progress</span>
+                                </div>
+                                <div class="progress mb-2" style="height: 6px; background: var(--border);">
+                                    <div class="progress-bar bg-accent" role="progressbar" style="width: 65%;"
+                                        aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="text-secondary x-small">Started: 20 mins ago | Expected completion: 10 mins
+                                </p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="d-flex justify-content-between align-items-start mb-1">
+                                    <div>
+                                        <h5 class="mb-1">Development Ã¢â€ â€™ Staging</h5>
+                                        <p class="text-secondary small mb-0">Schema sync for "Product" content type.</p>
+                                    </div>
+                                    <span class="status-badge status-active">Success</span>
+                                </div>
+                                <p class="text-secondary x-small">Completed: 2 days ago by @admin</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Smooth scrolling for sidebar links
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 120,
+                            behavior: 'smooth'
+                        });
+                        // Update active state
+                        document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Intersection Observer to update active sidebar link on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '-150px 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.sidebar-link').forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.dashboard-card').forEach(card => observer.observe(card));
+    </script>
+</body>
+
+</html>
