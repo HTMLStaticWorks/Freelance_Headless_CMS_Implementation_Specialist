@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Blog | Freelance Headless CMS Specialist</title>    <!-- Favicon -->
+    <title>Technical Blog | Freelance Headless CMS Specialist</title> <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <!-- Fonts -->
@@ -56,16 +56,20 @@
                 <button id="theme-toggle" class="btn btn-outline"><i class="ri-sun-line"></i></button>
                 <a href="signup.html" class="btn btn-primary">Signup</a>
             </div>
-            <button class="mobile-menu-btn d-xl-none btn btn-outline ms-auto" style="display:flex; align-items:center; justify-content:center; padding: 0.5rem 0.75rem;"><i class="ri-menu-line" style="font-size: 1.25rem; margin:0;"></i></button>
+            <button class="mobile-menu-btn d-xl-none btn btn-outline ms-auto"
+                style="display:flex; align-items:center; justify-content:center; padding: 0.5rem 0.75rem;"><i
+                    class="ri-menu-line" style="font-size: 1.25rem; margin:0;"></i></button>
         </div>
     </nav>
 
     <!-- Header -->
-    <section class="section pb-0" style="padding-top: 140px;">
+    <section class="hero-section">
         <div class="container">
-            <h1 class="hero-title">Engineering <span class="text-gradient">Insights</span>.</h1>
-            <p class="hero-subtitle">Deep dives into headless architecture, API design, and modern frontend patterns.
-            </p>
+            <div class="hero-content">
+                <h1 class="hero-title">Engineering <span class="text-gradient">Insights</span>.</h1>
+                <p class="hero-subtitle">Deep dives into headless architecture, API design, and modern frontend
+                    patterns.</p>
+            </div>
         </div>
     </section>
 
@@ -73,81 +77,91 @@
     <section class="section">
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="card h-100 fade-up">
                         <img src="assets/images/blog-sanity.png" alt="GROQ Queries" class="card-img">
                         <span class="text-accent small fw-bold mb-2">Architecture</span>
-                        <h3 class="mb-3">Mastering GROQ for Sanity</h3>
+                        <h3 class="mb-3">Mastering GROQ </h3>
                         <p class="text-secondary small mb-4">A comprehensive guide to writing efficient GROQ queries for
                             complex nested data structures in Sanity.io.</p>
                         <div class="d-flex align-items-center mt-auto">
                             <span class="text-secondary x-small">May 12, 2026</span>
-                            <a href="blog-sanity-groq.html" class="ms-auto text-accent fw-bold small">Read More</a>
+                            <a href="blog-sanity-groq.html"
+                                class="ms-auto text-accent fw-bold small read-more-link">Read More <i
+                                    class="ri-arrow-right-line"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="card h-100 fade-up" style="transition-delay: 0.1s;">
                         <img src="assets/images/blog-strapi-cicd.png" alt="Strapi CI/CD" class="card-img">
                         <span class="text-accent small fw-bold mb-2">DevOps</span>
-                        <h3 class="mb-3">Strapi CI/CD on DigitalOcean</h3>
+                        <h3 class="mb-3">Strapi CI/CD </h3>
                         <p class="text-secondary small mb-4">How to set up a robust deployment pipeline for Strapi using
-                            GitHub Actions and DigitalOcean App Platform.</p>
+                            GitHub Actions and DigitalOcean.</p>
                         <div class="d-flex align-items-center mt-auto">
                             <span class="text-secondary x-small">May 08, 2026</span>
-                            <a href="blog-strapi-cicd.html" class="ms-auto text-accent fw-bold small">Read More</a>
+                            <a href="blog-strapi-cicd.html"
+                                class="ms-auto text-accent fw-bold small read-more-link">Read More <i
+                                    class="ri-arrow-right-line"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="card h-100 fade-up" style="transition-delay: 0.2s;">
                         <img src="assets/images/blog-security.png" alt="API Security" class="card-img">
                         <span class="text-accent small fw-bold mb-2">Security</span>
-                        <h3 class="mb-3">API Authentication Patterns</h3>
+                        <h3 class="mb-3">API Authentication</h3>
                         <p class="text-secondary small mb-4">Comparing JWT, API Keys, and OAuth2 for securing your
                             headless CMS endpoints in production.</p>
                         <div class="d-flex align-items-center mt-auto">
                             <span class="text-secondary x-small">May 05, 2026</span>
-                            <a href="blog-api-security.html" class="ms-auto text-accent fw-bold small">Read More</a>
+                            <a href="blog-api-security.html"
+                                class="ms-auto text-accent fw-bold small read-more-link">Read More <i
+                                    class="ri-arrow-right-line"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="card h-100 fade-up">
                         <img src="assets/images/blog-nextjs.png" alt="Next.js ISR" class="card-img">
                         <span class="text-accent small fw-bold mb-2">Frontend</span>
-                        <h3 class="mb-3">Incremental Static Regeneration</h3>
-                        <p class="text-secondary small mb-4">Leveraging ISR in Next.js to handle real-time content
-                            updates from your Headless CMS without full rebuilds.</p>
+                        <h3 class="mb-3">Static Regeneration</h3>
+                        <p class="text-secondary small mb-4">Leveraging ISR in Next.js to handle the real-time content
+                            updates from your Headless CMS.</p>
                         <div class="d-flex align-items-center mt-auto">
                             <span class="text-secondary x-small">April 28, 2026</span>
-                            <a href="blog-nextjs-isr.html" class="ms-auto text-accent fw-bold small">Read More</a>
+                            <a href="blog-nextjs-isr.html" class="ms-auto text-accent fw-bold small read-more-link">Read
+                                More <i class="ri-arrow-right-line"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="card h-100 fade-up" style="transition-delay: 0.1s;">
                         <img src="assets/images/blog-strapi-v5.png" alt="Strapi v5" class="card-img">
                         <span class="text-accent small fw-bold mb-2">CMS News</span>
-                        <h3 class="mb-3">Strapi v5: What to Expect</h3>
+                        <h3 class="mb-3">Strapi v5</h3>
                         <p class="text-secondary small mb-4">A sneak peek into the upcoming features of Strapi v5 and
-                            how to prepare your codebase for the upgrade.</p>
+                            how to prepare your codebase.</p>
                         <div class="d-flex align-items-center mt-auto">
                             <span class="text-secondary x-small">April 20, 2026</span>
-                            <a href="blog-strapi-v5.html" class="ms-auto text-accent fw-bold small">Read More</a>
+                            <a href="blog-strapi-v5.html" class="ms-auto text-accent fw-bold small read-more-link">Read
+                                More <i class="ri-arrow-right-line"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="card h-100 fade-up" style="transition-delay: 0.2s;">
                         <img src="assets/images/workflow.png" alt="Composable Strategy" class="card-img">
                         <span class="text-accent small fw-bold mb-2">Strategy</span>
-                        <h3 class="mb-3">Composable Content Workflows</h3>
+                        <h3 class="mb-3">Content Workflows</h3>
                         <p class="text-secondary small mb-4">Designing seamless workflows between content teams and
-                            developers in a composable ecosystem.</p>
+                            developers in ecosystem.</p>
                         <div class="d-flex align-items-center mt-auto">
                             <span class="text-secondary x-small">April 15, 2026</span>
-                            <a href="blog-composable-workflows.html" class="ms-auto text-accent fw-bold small">Read More</a>
+                            <a href="blog-composable-workflows.html"
+                                class="ms-auto text-accent fw-bold small read-more-link">Read More <i
+                                    class="ri-arrow-right-line"></i></a>
                         </div>
                     </div>
                 </div>
@@ -160,9 +174,16 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <a href="index.html" class="logo mb-4 d-block"><i class="ri-stack-line text-accent"></i> CMS<span>Specialist</span></a>
-                    <p class="text-secondary">Helping teams build scalable, API-first content systems with modern
+                    <a href="index.html" class="logo mb-4 d-block"><i class="ri-stack-line text-accent"></i>
+                        CMS<span>Specialist</span></a>
+                    <p class="text-secondary mb-4">Helping teams build scalable, API-first content systems with modern
                         Headless CMS architecture.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+                        <a href="#" class="social-icon" aria-label="GitHub"><i class="ri-github-fill"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="ri-twitter-x-fill"></i></a>
+                        <a href="#" class="social-icon" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+                    </div>
                 </div>
                 <div>
                     <h4 class="footer-title">Solutions</h4>
@@ -204,8 +225,3 @@
 </body>
 
 </html>
-
-
-
-
-

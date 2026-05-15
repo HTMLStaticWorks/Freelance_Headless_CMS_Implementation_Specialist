@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
@@ -22,16 +22,18 @@
 </head>
 <body style="background: var(--background);">
 
-    <!-- Simple Navbar for Auth -->
-    <nav class="navbar" style="position: relative; background: transparent; border: none;">
-        <div class="container justify-content-center">
-            <a href="index.html" class="logo"><i class="ri-stack-line text-accent"></i> CMS<span>Specialist</span></a>
-        </div>
-    </nav>
+    <!-- Theme/RTL Toggles (Top Right) -->
+    <div class="nav-actions" style="position: fixed; top: 20px; right: 20px; z-index: 2000; display: flex; gap: 10px;">
+        <button id="rtl-toggle" class="btn btn-outline">RTL</button>
+        <button id="theme-toggle" class="btn btn-outline"><i class="ri-sun-line"></i></button>
+    </div>
 
-    <!-- Signup Section -->
-    <section class="section auth-section" style="padding-top: 60px;">
+    <!-- Auth Section -->
+    <section class="section auth-section" style="padding-top: 80px; min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column;">
         <div class="container">
+            <div class="d-flex justify-content-center mb-4">
+                <a href="index.html" class="logo" style="font-size: 2rem !important;"><i class="ri-stack-line text-accent"></i> CMS<span>Specialist</span></a>
+            </div>
             <div class="row justify-content-center">
                 <div class="col-lg-5">
                     <div class="card p-5">
@@ -52,13 +54,19 @@
                                 <label class="small fw-bold mb-2">Work Email</label>
                                 <input type="email" class="form-control" placeholder="name@company.com" required>
                             </div>
-                            <div class="mb-4">
+                             <div class="mb-4">
                                 <label class="small fw-bold mb-2">Password</label>
-                                <input type="password" class="form-control" placeholder="Create a password" required>
+                                <div class="password-wrapper">
+                                    <input type="password" class="form-control" id="password" placeholder="Create a password" required>
+                                    <i class="ri-eye-line toggle-password" data-target="password"></i>
+                                </div>
                             </div>
                             <div class="mb-4">
                                 <label class="small fw-bold mb-2">Confirm Password</label>
-                                <input type="password" class="form-control" placeholder="Confirm your password" required>
+                                <div class="password-wrapper">
+                                    <input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password" required>
+                                    <i class="ri-eye-line toggle-password" data-target="confirm-password"></i>
+                                </div>
                             </div>
                             <div class="mb-4 form-check">
                                 <input type="checkbox" class="form-check-input" id="terms">
@@ -93,6 +101,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="assets/js/theme-toggle.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        const toggleButtons = document.querySelectorAll('.toggle-password');
+        
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const passwordInput = document.getElementById(targetId);
+                
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                
+                this.classList.toggle('ri-eye-line');
+                this.classList.toggle('ri-eye-off-line');
+            });
+        });
+    </script>
 </body>
 </html>
 

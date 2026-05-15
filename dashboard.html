@@ -135,6 +135,12 @@
             overflow-x: auto;
         }
 
+        [data-theme="light"] .api-preview {
+            background: #f1f5f9;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
         .model-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -261,18 +267,21 @@
 
             .table tbody td {
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0.5rem 0 !important;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0.75rem 0 !important;
                 border: 0 !important;
-                text-align: right;
+                text-align: left;
+                gap: 0.25rem;
             }
 
             .table tbody td::before {
                 content: attr(data-label);
                 font-weight: 600;
-                color: var(--text-primary);
-                text-align: left;
+                color: var(--accent);
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
             }
 
             .api-preview {

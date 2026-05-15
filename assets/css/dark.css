@@ -25,26 +25,7 @@
 [data-theme="dark"] .code-block {
     background: #020617;
     border: 1px solid #1E293B;
-    border-radius: 8px;
-    padding: 1.5rem;
-    color: #8B5CF6;
-    font-family: 'Fira Code', monospace;
-    font-size: 0.9rem;
-    position: relative;
-}
-
-[data-theme="dark"] .code-block::before {
-    content: 'API Response';
-    position: absolute;
-    top: -10px;
-    left: 20px;
-    background: #8B5CF6;
-    color: #fff;
-    padding: 2px 10px;
-    font-size: 0.7rem;
-    border-radius: 4px;
-    text-transform: uppercase;
-    font-weight: 700;
+    color: #E2E8F0;
 }
 
 /* Specific Accent Glows */
@@ -61,4 +42,8 @@
     background: linear-gradient(135deg, #E2E8F0 0%, #8B5CF6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+[data-theme="dark"] select.form-control {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
 }

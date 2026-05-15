@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
@@ -22,16 +22,18 @@
 </head>
 <body style="background: var(--background);">
 
-    <!-- Simple Navbar for Auth -->
-    <nav class="navbar" style="position: relative; background: transparent; border: none;">
-        <div class="container justify-content-center">
-            <a href="index.html" class="logo"><i class="ri-stack-line text-accent"></i> CMS<span>Specialist</span></a>
-        </div>
-    </nav>
+    <!-- Theme/RTL Toggles (Top Right) -->
+    <div class="nav-actions" style="position: fixed; top: 20px; right: 20px; z-index: 2000; display: flex; gap: 10px;">
+        <button id="rtl-toggle" class="btn btn-outline">RTL</button>
+        <button id="theme-toggle" class="btn btn-outline"><i class="ri-sun-line"></i></button>
+    </div>
 
-    <!-- Login Section -->
-    <section class="section auth-section" style="padding-top: 60px;">
+    <!-- Auth Section -->
+    <section class="section auth-section" style="padding-top: 80px; min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column;">
         <div class="container">
+            <div class="d-flex justify-content-center mb-4">
+                <a href="index.html" class="logo" style="font-size: 2rem !important;"><i class="ri-stack-line text-accent"></i> CMS<span>Specialist</span></a>
+            </div>
             <div class="row justify-content-center">
                 <div class="col-lg-5">
                     <div class="card p-5">
@@ -46,7 +48,10 @@
                             </div>
                             <div class="mb-4">
                                 <label class="small fw-bold mb-2">Password</label>
-                                <input type="password" class="form-control" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required>
+                                <div class="password-wrapper">
+                                    <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                                    <i class="ri-eye-line toggle-password" id="togglePassword"></i>
+                                </div>
                             </div>
 
                             <div class="mb-4 d-flex justify-content-between align-items-center">
@@ -86,6 +91,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="assets/js/theme-toggle.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // toggle the eye / eye slash icon
+            this.classList.toggle('ri-eye-line');
+            this.classList.toggle('ri-eye-off-line');
+        });
+    </script>
 </body>
 </html>
 
