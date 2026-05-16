@@ -310,6 +310,24 @@
                 display: block;
             }
         }
+        
+        @media (min-width: 1025px) {
+            .dashboard-menu-toggle {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard-desktop-only {
+                display: none !important;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .dashboard-menu-toggle {
+                display: none !important;
+            }
+        }
 
         @media (max-width: 480px) {
             .navbar .container {
@@ -341,11 +359,19 @@
             <!-- Brand Identity -->
             <a href="index.html" class="logo"><i class="ri-stack-line text-accent"></i> CMS<span>Specialist</span></a>
 
-            <div class="d-flex align-items-center gap-3 ms-auto">
+            <div class="d-flex align-items-center ms-auto">
+                <!-- RTL and Theme Buttons -->
+                <div class="d-flex align-items-center me-3 dashboard-desktop-only">
+                    <button id="rtl-toggle" class="btn btn-outline btn-sm me-2">RTL</button>
+                    <button id="theme-toggle" class="btn btn-outline btn-sm me-2" aria-label="Toggle Theme">
+                        <i class="ri-sun-line"></i>
+                    </button>
+                </div>
+
                 <!-- Dashboard Actions -->
-                <div class="nav-actions">
-                    <div class="d-flex align-items-center gap-2">
-                        <div class="text-end d-none d-sm-block">
+                <div class="nav-actions me-3">
+                    <div class="d-flex align-items-center">
+                        <div class="text-end d-none d-sm-block me-2">
                             <div class="small fw-bold">Admin User</div>
                             <div class="text-secondary" style="font-size: 0.7rem;">Super Admin</div>
                         </div>
@@ -356,7 +382,7 @@
                     </div>
                 </div>
                 <!-- Hamburger Toggle -->
-                <button class="dashboard-menu-toggle d-xl-none btn btn-outline">
+                <button class="dashboard-menu-toggle btn btn-outline ms-2">
                     <i class="ri-menu-line"></i>
                 </button>
             </div>
