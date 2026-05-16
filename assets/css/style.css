@@ -367,7 +367,8 @@ section.section:first-of-type:not(.auth-section):not(.hero):not(.hero-section) .
     margin-right: auto !important;
     text-align: center !important;
     width: 100% !important;
-    max-width: 800px; /* Optional: constrain width for readability */
+    max-width: 800px;
+    /* Optional: constrain width for readability */
 }
 
 .hero-title {
@@ -441,7 +442,8 @@ section.section:first-of-type:not(.auth-section):not(.hero):not(.hero-section) .
 }
 
 /* --- Forms --- */
-.form-control {
+.form-control,
+.form-select {
     width: 100%;
     padding: 1rem 1.25rem;
     border-radius: 8px;
@@ -452,10 +454,14 @@ section.section:first-of-type:not(.auth-section):not(.hero):not(.hero-section) .
     font-size: 0.95rem;
     transition: var(--transition-base);
     outline: none;
+}
+
+.form-control {
     appearance: none;
 }
 
-.form-control:focus {
+.form-control:focus,
+.form-select:focus {
     border-color: var(--accent);
     background: var(--background);
     box-shadow: 0 0 0 4px var(--accent-glow);
@@ -492,10 +498,6 @@ textarea.form-control {
 }
 
 select.form-control {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    background-size: 1rem;
     padding-right: 2.5rem;
 }
 
@@ -565,7 +567,7 @@ select.form-control {
     color: var(--text-primary);
 }
 
-.code-block pre, 
+.code-block pre,
 .code-block code {
     font-family: inherit;
     color: inherit;
