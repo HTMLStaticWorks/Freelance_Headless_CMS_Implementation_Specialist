@@ -416,6 +416,37 @@ section.section:first-of-type:not(.auth-section):not(.hero):not(.hero-section) .
     margin-bottom: 1.5rem;
 }
 
+/* Pricing Popular Badge */
+.popular-badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, var(--accent) 0%, #312e81 100%);
+    color: white !important;
+    padding: 0.6rem 2.2rem;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+[data-theme="dark"] .popular-badge {
+    background: linear-gradient(135deg, var(--accent) 0%, #2e1065 100%);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-card-popular {
+    box-shadow: 0 20px 50px var(--accent-glow) !important;
+}
+
 /* --- Dashboard Preview --- */
 .dashboard-preview {
     background: var(--surface);
