@@ -28,7 +28,7 @@
 
     <style>
         .dashboard-container {
-            padding: 100px 0 100px;
+            padding: 62px 0 100px;
         }
 
         .dashboard-grid {
@@ -39,17 +39,28 @@
 
         .dashboard-sidebar-wrapper {
             position: sticky;
-            top: 90px;
-            height: fit-content;
+            top: 62px;
+            height: calc(100vh - 62px);
             align-self: start;
             z-index: 10;
         }
 
         .dashboard-sidebar {
             background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--card-radius);
-            padding: 1.5rem;
+            border-right: 1px solid var(--border);
+            border-top: none;
+            border-bottom: none;
+            border-left: none;
+            border-radius: 0;
+            padding: 2rem 1.5rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .dashboard-content {
+            padding: 2.5rem 3.5rem 2.5rem 0;
         }
 
         .sidebar-nav {
@@ -374,7 +385,20 @@
             right: -2.35rem;
         }
 
+        [dir="rtl"] .dashboard-sidebar {
+            border-left: 1px solid var(--border) !important;
+            border-right: none !important;
+        }
+
+        [dir="rtl"] .dashboard-content {
+            padding: 2.5rem 0 2.5rem 3.5rem !important;
+        }
+
         @media (max-width: 1024px) {
+            .dashboard-content {
+                padding: 1.5rem 0 !important;
+            }
+
             [dir="rtl"] .dashboard-sidebar {
                 left: auto;
                 right: -300px;
@@ -433,11 +457,7 @@
 
     <!-- Dashboard Content -->
     <section class="dashboard-container">
-        <div class="container">
-            <div class="mb-5">
-                <h1 class="mb-2">Admin <span class="text-gradient">Dashboard</span></h1>
-                <p class="text-secondary">Welcome back, Admin! Manage your headless CMS endpoints, monitor real-time webhooks, sync environments, and audit API schemas.</p>
-            </div>
+        <div class="container-fluid px-0">
 
             <div class="dashboard-grid">
                 <!-- Sidebar Navigation Wrapper -->
@@ -465,6 +485,10 @@
 
                 <!-- Main Content Area -->
                 <div class="dashboard-content">
+                    <div class="mb-5">
+                        <h1 class="mb-2">Admin <span class="text-gradient">Dashboard</span></h1>
+                        <p class="text-secondary">Welcome back, Admin! Manage your headless CMS endpoints, monitor real-time webhooks, sync environments, and audit API schemas.</p>
+                    </div>
 
                     <!-- Content Model Architecture -->
                     <div id="content-model" class="dashboard-card fade-up">
