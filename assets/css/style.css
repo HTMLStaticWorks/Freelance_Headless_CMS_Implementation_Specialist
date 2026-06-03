@@ -353,21 +353,16 @@ img {
     box-sizing: border-box;
     position: relative;
     border-bottom: 1px solid var(--border);
-    background-image: linear-gradient(to bottom, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.9)), url('../images/hero-bg.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
     overflow: hidden;
     color: #fff;
     text-align: center;
+    background-color: #020617;
+    transition: var(--transition-base);
 }
 
 .hero.hero-enterprise {
-    background-image: linear-gradient(to bottom, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.9)), url('../images/hero-bg-enterprise.png');
-}
-
-.hero.hero-developer {
-    background-image: linear-gradient(to bottom, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.9)), url('../images/hero-bg-developer.png');
+    padding-top: 160px;
+    padding-bottom: 240px;
 }
 
 .hero-section {
@@ -400,16 +395,34 @@ section.section:first-of-type:not(.auth-section):not(.hero):not(.hero-section) .
 }
 
 [data-theme="light"] .hero {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)), url('../images/hero-bg.png');
+    background-color: var(--background);
+    background-image: none;
     color: var(--text-primary);
 }
 
 [data-theme="light"] .hero.hero-enterprise {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)), url('../images/hero-bg-enterprise.png');
+    background-image: none;
 }
 
 [data-theme="light"] .hero.hero-developer {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)), url('../images/hero-bg-developer.png');
+    background-image: none;
+}
+
+[data-theme="light"] .hero::before {
+    background-image: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%),
+                      url('../images/hero-bg.png');
+    filter: invert(1) hue-rotate(180deg);
+    opacity: 0.25;
+}
+
+[data-theme="light"] .hero.hero-enterprise::before {
+    background-image: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%),
+                      url('../images/hero-bg-enterprise.png');
+}
+
+[data-theme="light"] .hero.hero-developer::before {
+    background-image: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%),
+                      url('../images/hero-bg-developer.png');
 }
 
 .hero .container,
@@ -427,9 +440,27 @@ section.section:first-of-type:not(.auth-section):not(.hero):not(.hero-section) .
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%);
-    opacity: 0.5;
+    background-image: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%),
+                      linear-gradient(to bottom, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.9)),
+                      url('../images/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     pointer-events: none;
+    z-index: 1;
+    transition: var(--transition-base);
+}
+
+.hero.hero-enterprise::before {
+    background-image: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%),
+                      linear-gradient(to bottom, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.9)),
+                      url('../images/hero-bg-enterprise.png');
+}
+
+.hero.hero-developer::before {
+    background-image: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%),
+                      linear-gradient(to bottom, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.9)),
+                      url('../images/hero-bg-developer.png');
 }
 
 .hero-content {
@@ -750,6 +781,10 @@ select.form-control {
         padding: 0;
         margin: 0;
         display: none;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        transition: none !important;
     }
 
     .mobile-menu-btn {
@@ -770,6 +805,10 @@ select.form-control {
         font-size: 1.5rem;
         display: block;
         line-height: 1;
+    }
+
+    .navbar .container > .nav-actions {
+        display: none !important;
     }
 }
 

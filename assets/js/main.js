@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Relocate actions based on viewport
             const relocateActions = () => {
-                if (window.innerWidth <= 1024) {
+                if (window.matchMedia("(max-width: 1024px)").matches) {
                     if (!navLinks.contains(navActions)) {
                         // Move into menu
                         navActions.classList.add('mt-2', 'w-100', 'justify-content-center');
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const dropdownLinks = navLinks.querySelectorAll('.nav-dropdown > a');
             dropdownLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
-                    if (window.innerWidth <= 1024) {
+                    if (window.matchMedia("(max-width: 1024px)").matches) {
                         e.preventDefault();
                         e.stopPropagation();
                         const dropdownMenu = link.nextElementSibling;
