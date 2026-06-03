@@ -42,6 +42,7 @@
                         <a href="home-2.html" class="dropdown-item">Home - Developer Focus</a>
                     </div>
                 </li>
+                <li class="nav-item"><a href="about.html">About</a></li>
                 <li class="nav-item"><a href="services.html">Services</a></li>
                 <li class="nav-item nav-dropdown">
                     <a href="#">Solutions <i class="ri-arrow-down-s-line"></i></a>
@@ -70,7 +71,7 @@
     </nav>
 
     <!-- Dev Hero Section -->
-    <section class="hero" style="padding-bottom: 60px;">
+    <section class="hero hero-developer" style="padding-bottom: 60px;">
         <div class="container text-center">
             <h1 class="hero-title"><span class="text-gradient">Engineered</span> Content Delivery.</h1>
             <p class="hero-subtitle mx-auto" style="max-width: 700px;">Stop wrestling with monolithic CMS limits. Build
@@ -81,11 +82,14 @@
   <span style="color: var(--accent);">"tech_stack"</span>: <span>["Strapi", "Next.js", "GraphQL"]</span>,
   <span style="color: var(--accent);">"performance"</span>: <span>"Optimized"</span>,
   <span style="color: var(--accent);">"status"</span>: <span>"Ready to Scale"</span>
-<span>}</span></code></pre>
+ <span>}</span></code></pre>
             </div>
             <div class="d-flex justify-content-center gap-3">
                 <a href="signup.html" class="btn btn-primary">View GitHub Docs</a>
                 <a href="services.html" class="btn btn-outline">Explore Stack</a>
+            </div>
+            <div class="dashboard-preview fade-up mt-5 d-none d-lg-block mx-auto" style="max-width: 900px;">
+                <img src="assets/images/hero-developer.png" alt="Developer API Console">
             </div>
         </div>
     </section>
@@ -94,8 +98,7 @@
     <section class="section">
         <div class="container">
             <div class="text-center mb-5 w-100 d-flex flex-column align-items-center">
-                <h2 class="section-title mb-3" style="text-align: center !important;">Enterprise <span
-                        class="text-gradient">Capabilities</span>.</h2>
+                <h2 class="section-title mb-3">Enterprise <span class="text-gradient">Capabilities</span>.</h2>
                 <p class="text-secondary" style="max-width: 600px; text-align: center !important;">Advanced technical
                     features designed for robust, scalable, and secure content implementations.</p>
             </div>
@@ -181,8 +184,7 @@ return (
     <section class="section">
         <div class="container">
             <div class="text-center mb-5 w-100 d-flex flex-column align-items-center">
-                <h2 class="section-title mb-3" style="text-align: center !important;">Proven <span
-                        class="text-gradient">Performance</span>.</h2>
+                <h2 class="section-title mb-3">Proven <span class="text-gradient">Performance</span>.</h2>
                 <p class="text-secondary" style="max-width: 600px; text-align: center !important;">Enterprise-grade APIs
                     designed to handle massive throughput without breaking a sweat.</p>
             </div>
@@ -217,8 +219,7 @@ return (
     <section class="section" style="background: var(--surface);">
         <div class="container">
             <div class="text-center mb-5 w-100 d-flex flex-column align-items-center">
-                <h2 class="section-title mb-3" style="text-align: center !important;">Technical <span
-                        class="text-gradient">FAQ</span>.</h2>
+                <h2 class="section-title mb-3">Technical <span class="text-gradient">FAQ</span>.</h2>
             </div>
             <div class="mx-auto" style="max-width: 800px;">
                 <details class="card p-4 mb-3 fade-up" style="cursor: pointer;">
@@ -263,18 +264,17 @@ return (
     <!-- Developer CTA Section -->
     <section class="section">
         <div class="container text-center">
-            <div class="card p-5 fade-up" style="border-color: var(--accent); position: relative; overflow: hidden;">
+            <div class="card p-4 p-md-5 fade-up" style="border-color: var(--accent); position: relative; overflow: hidden;">
                 <div class="glow-purple" style="top: -50%; left: -10%;"></div>
                 <div class="position-relative d-flex flex-column align-items-center w-100 text-center"
                     style="z-index: 1;">
-                    <h2 class="mb-4 w-100" style="font-size: 2.5rem; text-align: center !important;">Ready to <span
-                            class="text-accent">git init</span> your new stack?</h2>
+                    <h2 class="section-title mb-4">Ready to <span class="text-accent">git init</span> your new stack?</h2>
                     <p class="text-secondary mx-auto mb-5 w-100"
                         style="max-width: 600px; text-align: center !important;">Review my GitHub repositories, read the
                         documentation, or schedule a technical deep-dive to discuss your architecture.</p>
                     <div class="d-flex justify-content-center flex-wrap" style="gap: 24px !important;">
-                        <a href="contact.html" class="btn btn-primary py-3 px-5">Schedule Deep-Dive</a>
-                        <a href="dashboard.html" class="btn btn-outline py-3 px-5">View Dashboard Demo</a>
+                        <a href="contact.html" class="btn btn-primary py-3 px-4 px-sm-5">Schedule Deep-Dive</a>
+                        <a href="dashboard.html" class="btn btn-outline py-3 px-4 px-sm-5">View Dashboard Demo</a>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Alex Carter - Headless CMS Specialist</title>
+    <meta name="description"
+        content="Learn about Alex Carter, a freelance Headless CMS specialist, content architect, and API engineer. Professional story, skills, and career timeline.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><i class="ri-stack-line text-accent"></i> CMS<span>Specialist</span></a>
+            <ul class="nav-links">
+                <li class="nav-item nav-dropdown">
+                    <a href="index.html">Home <i class="ri-arrow-down-s-line"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-item">Home - Enterprise</a>
+                        <a href="home-2.html" class="dropdown-item">Home - Developer Focus</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="about.html" class="text-accent">About</a></li>
+                <li class="nav-item"><a href="services.html">Services</a></li>
+                <li class="nav-item nav-dropdown">
+                    <a href="#">Solutions <i class="ri-arrow-down-s-line"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="strapi-solutions.html" class="dropdown-item">Strapi Solutions</a>
+                        <a href="sanity-solutions.html" class="dropdown-item">Sanity Solutions</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="case-studies.html">Case Studies</a></li>
+                <li class="nav-item"><a href="blog.html">Blog</a></li>
+                <li class="nav-item"><a href="contact.html">Contact</a></li>
+                <li class="nav-item"><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="rtl-toggle" class="btn btn-outline">RTL</button>
+                <button id="theme-toggle" class="btn btn-outline"><i class="ri-sun-line"></i></button>
+                <a href="signup.html" class="btn btn-primary">Signup</a>
+            </div>
+            <button class="mobile-menu-btn d-xl-none btn btn-outline ms-auto"
+                style="display:flex; align-items:center; justify-content:center; padding: 0.5rem 0.75rem;"><i
+                    class="ri-menu-line" style="font-size: 1.25rem; margin:0;"></i></button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">About <span class="text-gradient">Alex Carter</span>.</h1>
+                <p class="hero-subtitle">Independent Content Architect, API Engineer, and Headless CMS Specialist.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5 text-center fade-up">
+                    <img src="assets/images/about-profile.png" alt="Alex Carter CMS Specialist Workspace"
+                        class="img-fluid"
+                        style="border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 20px 40px rgba(0,0,0,0.15); max-width: 100%;">
+                </div>
+                <div class="col-lg-7 fade-up">
+                    <h2 class="mb-4">Bridging the Gap Between <span class="text-accent">Code</span> and <span
+                            class="text-accent">Content</span>.</h2>
+                    <p class="text-secondary mb-4">I began my career as a full-stack developer, designing complex database architectures and building fast frontend client apps. Over time, I saw that content administration was a constant bottleneck—legacy monolith platforms restricted engineering speeds, while generic editing tools frustrated content creators.</p>
+                    <p class="text-secondary mb-4">Recognizing the potential of decoupled systems, I chose to specialize exclusively in Headless CMS architectures. Since then, I have designed structured content models, written custom plugins, audited security layers, and handled zero-downtime database migrations for client teams around the world.</p>
+                    <p class="text-secondary mb-0">My objective is to construct fast, robust content engines using APIs like GraphQL, REST, and GROQ. I build developer velocity for engineers and intuitive, custom workspaces for writers, allowing your content structure to scale with your codebase.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" style="background: var(--surface);">
+        <div class="container">
+            <h2 class="section-title">Core <span class="text-accent">Specialties</span></h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 fade-up">
+                        <div class="text-accent mb-3"><i class="ri-rocket-2-line ri-2x"></i></div>
+                        <h4 class="mb-3">CMS Platforms</h4>
+                        <p class="text-secondary small mb-0">Highly customized setups of Strapi and Sanity Studio, including lifecycle hooks, schema definitions, custom fields, and preview modes.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 fade-up">
+                        <div class="text-accent mb-3"><i class="ri-terminal-box-line ri-2x"></i></div>
+                        <h4 class="mb-3">APIs & Frontend</h4>
+                        <p class="text-secondary small mb-0">High-performance integrations with Next.js, Remix, and React, querying headless endpoints using GraphQL, GROQ, and REST APIs.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 fade-up">
+                        <div class="text-accent mb-3"><i class="ri-git-merge-line ri-2x"></i></div>
+                        <h4 class="mb-3">DevOps & CI/CD</h4>
+                        <p class="text-secondary small mb-0">Continuous deployment workflows on Vercel, Netlify, and AWS, integrating automated webhooks, database backups, and CDN configurations.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 fade-up">
+                        <div class="text-accent mb-3"><i class="ri-shield-keyhole-line ri-2x"></i></div>
+                        <h4 class="mb-3">Audits & Syncing</h4>
+                        <p class="text-secondary small mb-0">Security auditing of API rules, schema optimizations, environment sync workflows, and zero-downtime bulk content migrations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Timeline Section -->
+    <section class="section">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="section-title">Career <span class="text-accent">Timeline</span></h2>
+            <div class="migration-timeline fade-up">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
+                        <h4 class="mb-0 text-accent">Independent Headless CMS Specialist</h4>
+                        <span class="badge bg-accent-glow text-accent py-2 px-3 small">2022 - PRESENT</span>
+                    </div>
+                    <p class="text-secondary">Providing direct technical consulting to e-commerce engines and SaaS dashboards migrating to decoupled CMS stacks. Engineered custom synchronization controllers, lifecycle plugins, and managed large-scale content transitions.</p>
+                </div>
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
+                        <h4 class="mb-0 text-accent">Lead CMS Architect</h4>
+                        <span class="text-secondary small" style="font-weight: 500;">ContentLabs | 2020 - 2022</span>
+                    </div>
+                    <p class="text-secondary">Designed scalable structured content schemas for high-traffic media operations, managed editorial panel customizations, and built robust webhook-driven build trigger systems.</p>
+                </div>
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
+                        <h4 class="mb-0 text-accent">Senior Frontend Developer</h4>
+                        <span class="text-secondary small" style="font-weight: 500;">DevCorp | 2018 - 2020</span>
+                    </div>
+                    <p class="text-secondary">Created developer-focused frontend static sites using Next.js, Gatsby, and Remix, connecting custom API query pipelines with decoupled GraphQL and GROQ databases.</p>
+                </div>
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item">
+                    <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
+                        <h4 class="mb-0 text-accent">Full-Stack Engineer</h4>
+                        <span class="text-secondary small" style="font-weight: 500;">WebStudio | 2016 - 2018</span>
+                    </div>
+                    <p class="text-secondary">Managed custom server configurations, database operations, and built tailored dashboard administration interfaces for client companies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section pt-0">
+        <div class="container text-center">
+            <div class="card p-4 p-md-5 fade-up" style="border-color: var(--accent); position: relative; overflow: hidden;">
+                <div class="glow-purple" style="top: -50%; left: -10%;"></div>
+                <div class="position-relative d-flex flex-column align-items-center w-100 text-center"
+                    style="z-index: 1;">
+                    <h2 class="section-title mb-4">Ready to upgrade your <span class="text-accent">Content API</span>?</h2>
+                    <p class="text-secondary mx-auto mb-5 w-100"
+                        style="max-width: 600px; text-align: center !important;">Let's discuss your technical
+                        requirements and build a headless architecture that scales with your traffic.</p>
+                    <div class="d-flex justify-content-center flex-wrap" style="gap: 24px !important;">
+                        <a href="contact.html" class="btn btn-primary py-3 px-4 px-sm-5">Book a Consultation</a>
+                        <a href="services.html" class="btn btn-outline py-3 px-4 px-sm-5">View Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="logo mb-4 d-block"><i class="ri-stack-line text-accent"></i>
+                        CMS<span>Specialist</span></a>
+                    <p class="text-secondary mb-4">Helping teams build scalable, API-first content systems with modern
+                        Headless CMS architecture.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+                        <a href="#" class="social-icon" aria-label="GitHub"><i class="ri-github-fill"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="ri-twitter-x-fill"></i></a>
+                        <a href="#" class="social-icon" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Solutions</h4>
+                    <a href="strapi-solutions.html" class="footer-link">Strapi Implementation</a>
+                    <a href="sanity-solutions.html" class="footer-link">Sanity Integration</a>
+                    <a href="service-details.html" class="footer-link">API Architecture</a>
+                    <a href="service-details.html" class="footer-link">Security Audits</a>
+                </div>
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <a href="blog.html" class="footer-link">Technical Blog</a>
+                    <a href="case-studies.html" class="footer-link">Case Studies</a>
+                    <a href="contact.html" class="footer-link">Documentation</a>
+                    <a href="404.html" class="footer-link">API Status</a>
+                </div>
+                <div>
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p class="text-secondary mb-3">Get technical insights on Headless CMS trends.</p>
+                    <form class="d-flex gap-2">
+                        <input type="email" class="btn btn-outline w-100" placeholder="Email address"
+                            style="text-align: left;">
+                        <button class="btn btn-primary"><i class="ri-send-plane-fill"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-5 pt-4 border-top text-center text-secondary" style="font-size: 0.85rem;">
+                <p>&copy; 2026 CMS Specialist. All rights reserved. | <a href="#" class="footer-link d-inline">Privacy
+                        Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

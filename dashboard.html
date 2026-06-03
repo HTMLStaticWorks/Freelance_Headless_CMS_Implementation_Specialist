@@ -28,7 +28,7 @@
 
     <style>
         .dashboard-container {
-            padding: 140px 0 100px;
+            padding: 100px 0 100px;
         }
 
         .dashboard-grid {
@@ -37,14 +37,19 @@
             gap: 2.5rem;
         }
 
+        .dashboard-sidebar-wrapper {
+            position: sticky;
+            top: 90px;
+            height: fit-content;
+            align-self: start;
+            z-index: 10;
+        }
+
         .dashboard-sidebar {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--card-radius);
             padding: 1.5rem;
-            height: fit-content;
-            position: sticky;
-            top: 120px;
         }
 
         .sidebar-nav {
@@ -193,6 +198,10 @@
         }
 
         @media (max-width: 1024px) {
+            .dashboard-sidebar-wrapper {
+                display: contents;
+            }
+
             .dashboard-grid {
                 grid-template-columns: 1fr;
             }
@@ -348,6 +357,36 @@
                 font-size: 1rem;
             }
         }
+
+        /* RTL overrides for Dashboard */
+        [dir="rtl"] .migration-timeline {
+            padding-left: 0;
+            padding-right: 2rem;
+        }
+
+        [dir="rtl"] .migration-timeline::before {
+            left: auto;
+            right: 0;
+        }
+
+        [dir="rtl"] .timeline-item::after {
+            left: auto;
+            right: -2.35rem;
+        }
+
+        @media (max-width: 1024px) {
+            [dir="rtl"] .dashboard-sidebar {
+                left: auto;
+                right: -300px;
+                border-right: none;
+                border-left: 1px solid var(--border);
+            }
+
+            [dir="rtl"] .dashboard-sidebar.active {
+                left: auto;
+                right: 0;
+            }
+        }
     </style>
 </head>
 
@@ -397,29 +436,31 @@
         <div class="container">
             <div class="mb-5">
                 <h1 class="mb-2">Admin <span class="text-gradient">Dashboard</span></h1>
-                <p class="text-secondary">Enterprise CMS Control Center</p>
+                <p class="text-secondary">Welcome back, Admin! Manage your headless CMS endpoints, monitor real-time webhooks, sync environments, and audit API schemas.</p>
             </div>
 
             <div class="dashboard-grid">
-                <!-- Sidebar Navigation -->
-                <aside class="dashboard-sidebar fade-up">
-                    <nav class="sidebar-nav">
-                        <a href="#content-model" class="sidebar-link active">
-                            <i class="ri-node-tree"></i> Content Model
-                        </a>
-                        <a href="#webhooks" class="sidebar-link">
-                            <i class="ri-links-line"></i> Webhooks
-                        </a>
-                        <a href="#api-preview" class="sidebar-link">
-                            <i class="ri-code-s-slash-line"></i> API Preview
-                        </a>
-                        <a href="#migrations" class="sidebar-link">
-                            <i class="ri-arrow-left-right-line"></i> Migrations
-                        </a>
-                        <a href="login.html" class="sidebar-link mt-4 text-danger">
-                            <i class="ri-logout-box-line"></i> Logout
-                        </a>
-                    </nav>
+                <!-- Sidebar Navigation Wrapper -->
+                <aside class="dashboard-sidebar-wrapper">
+                    <div class="dashboard-sidebar fade-up">
+                        <nav class="sidebar-nav">
+                            <a href="#content-model" class="sidebar-link active">
+                                <i class="ri-node-tree"></i> Content Model
+                            </a>
+                            <a href="#webhooks" class="sidebar-link">
+                                <i class="ri-links-line"></i> Webhooks
+                            </a>
+                            <a href="#api-preview" class="sidebar-link">
+                                <i class="ri-code-s-slash-line"></i> API Preview
+                            </a>
+                            <a href="#migrations" class="sidebar-link">
+                                <i class="ri-arrow-left-right-line"></i> Migrations
+                            </a>
+                            <a href="login.html" class="sidebar-link mt-4 text-danger">
+                                <i class="ri-logout-box-line"></i> Logout
+                            </a>
+                        </nav>
+                    </div>
                 </aside>
 
                 <!-- Main Content Area -->

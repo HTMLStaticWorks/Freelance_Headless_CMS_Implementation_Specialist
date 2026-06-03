@@ -70,6 +70,10 @@ h6 {
     color: var(--text-primary);
 }
 
+h2 {
+    font-size: 2.5rem;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -96,6 +100,14 @@ img {
     font-size: 2.5rem;
 }
 
+.gap-2 {
+    gap: 0.5rem !important;
+}
+
+.gap-3 {
+    gap: 1rem !important;
+}
+
 .container,
 .page-container,
 .content-wrapper,
@@ -118,7 +130,7 @@ img {
     background: var(--glass);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
-    padding: 1rem 0;
+    padding: 0.75rem 0;
     transition: var(--transition-base);
 }
 
@@ -130,13 +142,13 @@ img {
 
 .logo {
     font-family: var(--font-heading) !important;
-    font-size: 1.5rem !important;
+    font-size: 1.4rem !important;
     font-weight: 700 !important;
     color: var(--text-primary) !important;
     text-decoration: none !important;
     display: inline-flex !important;
     align-items: center !important;
-    gap: 0.35rem !important;
+    gap: 0.4rem !important;
 }
 
 .logo span {
@@ -145,17 +157,37 @@ img {
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 1.75rem;
     align-items: center;
 }
 
 .nav-item {
     font-weight: 500;
     font-size: 0.95rem;
+    position: relative;
 }
 
-.nav-item:hover {
+.nav-item > a {
+    padding: 0.5rem 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--text-primary);
+    transition: var(--transition-base);
+}
+
+.nav-item:hover > a {
     color: var(--accent);
+}
+
+.nav-item > a i {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.nav-dropdown:hover > a i {
+    transform: rotate(180deg);
 }
 
 .nav-dropdown {
@@ -164,16 +196,16 @@ img {
 
 .dropdown-menu {
     position: absolute;
-    top: 100%;
-    left: 0;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 1rem;
-    min-width: 240px;
+    padding: 0.75rem;
+    min-width: 220px;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(10px);
     transition: var(--transition-base);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 }
@@ -181,13 +213,23 @@ img {
 .nav-dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Bridge the gap to prevent cursor out mouseleave trigger */
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 0;
+    width: 100%;
+    height: 12px;
 }
 
 .dropdown-item {
-    padding: 0.85rem 1.25rem;
+    padding: 0.75rem 1.15rem;
     border-radius: 8px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     display: block;
     margin-bottom: 0.25rem;
 }
@@ -203,8 +245,35 @@ img {
 
 .nav-actions {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
     align-items: center;
+}
+
+.navbar .btn {
+    padding: 0.45rem 1.15rem;
+    font-size: 0.85rem;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.navbar #theme-toggle {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border-radius: 8px;
+}
+
+.navbar #rtl-toggle {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    font-size: 0.75rem;
+    border-radius: 8px;
+    font-weight: 700;
 }
 
 /* --- Buttons --- */
@@ -218,6 +287,7 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     border: none;
 }
 
@@ -279,7 +349,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 160px 20px 100px;
+    padding: 160px 20px 160px;
     box-sizing: border-box;
     position: relative;
     border-bottom: 1px solid var(--border);
@@ -292,12 +362,20 @@ img {
     text-align: center;
 }
 
+.hero.hero-enterprise {
+    background-image: linear-gradient(to bottom, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.9)), url('../images/hero-bg-enterprise.png');
+}
+
+.hero.hero-developer {
+    background-image: linear-gradient(to bottom, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.9)), url('../images/hero-bg-developer.png');
+}
+
 .hero-section {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 140px 20px 80px;
+    padding: 100px 20px 60px;
     box-sizing: border-box;
     position: relative;
     border-bottom: 1px solid var(--border);
@@ -324,6 +402,14 @@ section.section:first-of-type:not(.auth-section):not(.hero):not(.hero-section) .
 [data-theme="light"] .hero {
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)), url('../images/hero-bg.png');
     color: var(--text-primary);
+}
+
+[data-theme="light"] .hero.hero-enterprise {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)), url('../images/hero-bg-enterprise.png');
+}
+
+[data-theme="light"] .hero.hero-developer {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)), url('../images/hero-bg-developer.png');
 }
 
 .hero .container,
@@ -400,6 +486,16 @@ section.section:first-of-type:not(.auth-section):not(.hero):not(.hero-section) .
     border-radius: var(--card-radius);
     padding: 2.5rem;
     transition: var(--transition-base);
+}
+
+.card-center-aligned {
+    text-align: center !important;
+}
+
+.card-center-aligned h3,
+.card-center-aligned h4,
+.card-center-aligned p {
+    text-align: center !important;
 }
 
 .card:hover {
@@ -611,6 +707,11 @@ select.form-control {
         font-size: 3rem;
     }
 
+    h2,
+    .section-title {
+        font-size: 2rem;
+    }
+
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
@@ -690,6 +791,7 @@ select.form-control {
 
 /* RTL Support */
 [dir="rtl"] {
+    direction: rtl;
     text-align: right;
 }
 
@@ -703,21 +805,15 @@ select.form-control {
     margin-right: 0 !important;
 }
 
+[dir="rtl"] .mobile-menu-btn,
+[dir="rtl"] .dashboard-menu-toggle {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
 [dir="rtl"] .ri-arrow-right-line::before {
     content: "\ea60";
     /* ri-arrow-left-line */
-}
-
-[dir="rtl"] .navbar .container {
-    flex-direction: row-reverse;
-}
-
-[dir="rtl"] .nav-links {
-    flex-direction: row-reverse;
-}
-
-[dir="rtl"] .nav-actions {
-    flex-direction: row-reverse;
 }
 
 [dir="rtl"] .footer-grid {
