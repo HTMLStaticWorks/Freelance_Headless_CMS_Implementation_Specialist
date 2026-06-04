@@ -362,7 +362,7 @@ img {
 
 .hero.hero-enterprise {
     padding-top: 160px;
-    padding-bottom: 240px;
+    padding-bottom: 160px;
 }
 
 .hero-section {
@@ -730,6 +730,8 @@ select.form-control {
     font-family: inherit;
     color: inherit;
     margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 /* --- Responsive --- */
@@ -825,6 +827,22 @@ select.form-control {
 
     .footer-grid {
         grid-template-columns: 1fr;
+    }
+
+    .code-block {
+        padding: 1rem;
+        font-size: 0.8rem;
+    }
+
+    .pricing-card {
+        padding-bottom: 3.5rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-card-popular {
+        transform: none !important;
+        margin-top: 2.25rem !important;
     }
 }
 
