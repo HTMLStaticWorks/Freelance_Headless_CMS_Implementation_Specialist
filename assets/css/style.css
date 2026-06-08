@@ -64,10 +64,14 @@ h4,
 h5,
 h6 {
     font-family: var(--font-heading);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.2;
     margin-bottom: 1.5rem;
     color: var(--text-primary);
+}
+
+p {
+    font-weight: 400;
 }
 
 h2 {
@@ -492,7 +496,7 @@ section.section:first-of-type:not(.auth-section):not(.hero):not(.hero-section) .
     font-size: 4.5rem;
     line-height: 1.1;
     margin-bottom: 2rem;
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: -0.02em;
 }
 
@@ -887,4 +891,14 @@ select.form-control {
 [dir="rtl"] .badge {
     margin-right: 0 !important;
     margin-left: auto !important;
+}
+
+/* --- Auth Section --- */
+.auth-section h2 {
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+.auth-section p {
+    text-align: center;
 }
